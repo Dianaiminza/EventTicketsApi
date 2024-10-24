@@ -11,12 +11,12 @@ namespace EventTicketsApi.Application.Boundary.Requests
         public string Venue { get; set; }
 
         [Required]
-        public DateTime EventDate { get; set; }
+        public DateTimeOffset EventDate { get; set; }
 
         [Range(0.01, double.MaxValue, ErrorMessage = "Price must be greater than zero.")]
-        public decimal Price { get; set; }
+        public double Price { get; set; }
 
         [Range(0, int.MaxValue, ErrorMessage = "Available tickets cannot be negative.")]
-        public int AvailableTickets { get; set; }
+        public long AvailableTickets { get; set; }
     }
 }

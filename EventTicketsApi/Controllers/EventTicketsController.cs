@@ -1,4 +1,6 @@
+using EventTicketsApi.Application.Boundary.Requests;
 using EventTicketsApi.Application.Boundary.Responses;
+using EventTicketsApi.Application.Features.Queries;
 using Infrastructure.shared.Wrapper;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -24,10 +26,29 @@ namespace EventTicketsApi.Controllers
             _mediator = mediator;
         }
 
+        /// <summary>
+        /// Get All Event Tickets.
+        /// </summary>
+        /// <returns></returns>
+
         [HttpGet]
-        public async Task<ActionResult<Result<List<EventTicketResponse>>>> GetEventsAsync()
+        public async Task<ActionResult<Result<List<EventTicketResponse>>>> GetEventTicketsAsync()
         {
             var response = await _mediator.Send(new GetEventsTicketQuery());
+            return Ok(response);
+        }
+
+        /// <summary>
+        /// Create Event ticket.
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost("currencies/create")]
+        public async Task<ActionResult<Result<EventTicketResponse>>> CreateEventTicketsAsync(
+          [FromBody] CreateEventTicketRequest request)
+        {
+            var command = new CreateEventTicketCommand(request);
+            var response = await _mediator.Send(command);
             return Ok(response);
         }
     }
