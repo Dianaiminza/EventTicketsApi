@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventsTicket.Domain", "Even
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventsTicket.Infrastructure", "EventsTicket.Infrastructure\EventsTicket.Infrastructure.csproj", "{55C147FF-E4B0-43DD-9DA1-6F178622C16B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{2BBB5BC2-1BE8-43E3-8E37-D777EFC9659F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.shared", "shared\Infrastructure.shared\Infrastructure.shared.csproj", "{98687F4C-247F-43D4-B3B1-61672E07C16D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,9 +31,16 @@ Global
 		{55C147FF-E4B0-43DD-9DA1-6F178622C16B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55C147FF-E4B0-43DD-9DA1-6F178622C16B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55C147FF-E4B0-43DD-9DA1-6F178622C16B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98687F4C-247F-43D4-B3B1-61672E07C16D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98687F4C-247F-43D4-B3B1-61672E07C16D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98687F4C-247F-43D4-B3B1-61672E07C16D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98687F4C-247F-43D4-B3B1-61672E07C16D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{98687F4C-247F-43D4-B3B1-61672E07C16D} = {2BBB5BC2-1BE8-43E3-8E37-D777EFC9659F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4B2F6533-43EC-4948-BC06-F2245369D567}

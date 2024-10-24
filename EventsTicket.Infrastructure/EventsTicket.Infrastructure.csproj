@@ -19,4 +19,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\EventsTicket.Domain\EventsTicket.Domain.csproj" />
+    <ProjectReference Include="..\shared\Infrastructure.shared\Infrastructure.shared.csproj" />
+  </ItemGroup>
+
 </Project>
