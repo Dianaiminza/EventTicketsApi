@@ -18,11 +18,11 @@ namespace EventTicketsApi.Controllers
     [ApiExplorerSettings(GroupName = "v1")]
     [Route("api/v{version:apiVersion}/eventtickets")]
     [ApiController]
-    public class TransactionController : ControllerBase
+    public class EventTicketsController : ControllerBase
     {
         private readonly IMediator _mediator;
 
-        public TransactionController(IMediator mediator)
+        public EventTicketsController(IMediator mediator)
         {
             _mediator = mediator;
         }
