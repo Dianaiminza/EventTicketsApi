@@ -39,6 +39,18 @@ namespace EventTicketsApi.Controllers
             return Ok(response);
         }
 
+        // <summary>
+        // Get a single  Event Ticket
+        // </summary>
+        // <returns></returns>
+        [HttpGet("{eventId}")]
+        public async Task<ActionResult<Result<EventTicketResponse>>> EventTicketsByIdAsync(
+            [FromRoute] long eventId)
+        {
+            var response = await _mediator.Send(new GetEventTicketsByIdQuery(eventId));
+            return Ok(response);
+        }
+
         /// <summary>
         /// Create Event ticket.
         /// </summary>
