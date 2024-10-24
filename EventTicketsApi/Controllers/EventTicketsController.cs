@@ -1,5 +1,6 @@
 using EventTicketsApi.Application.Boundary.Requests;
 using EventTicketsApi.Application.Boundary.Responses;
+using EventTicketsApi.Application.Features.Commands;
 using EventTicketsApi.Application.Features.Queries;
 using Infrastructure.shared.Wrapper;
 using MediatR;
@@ -15,7 +16,7 @@ namespace EventTicketsApi.Controllers
     [Consumes(MediaTypeNames.Application.Json)]
     [ApiVersion("1")]
     [ApiExplorerSettings(GroupName = "v1")]
-    [Route("api/v{version:apiVersion}/events")]
+    [Route("api/v{version:apiVersion}/eventtickets")]
     [ApiController]
     public class TransactionController : ControllerBase
     {
@@ -43,11 +44,28 @@ namespace EventTicketsApi.Controllers
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        [HttpPost("currencies/create")]
+        [HttpPost]
         public async Task<ActionResult<Result<EventTicketResponse>>> CreateEventTicketsAsync(
           [FromBody] CreateEventTicketRequest request)
         {
             var command = new CreateEventTicketCommand(request);
+            var response = await _mediator.Send(command);
+            return Ok(response);
+        }
+
+        /// <summary>
+        /// Update  Event ticket.
+        /// </summary>
+        /// <param name="eventId"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost("{eventId}")]
+        public async Task<ActionResult<Result<EventTicketResponse>>> UpdateEventTicketsAsync(
+            [FromRoute] long eventId,
+          [FromBody] UpdateEventTicketRequest request)
+        {
+            request.Id = eventId;
+            var command = new UpdateEventTicketCommand(request);
             var response = await _mediator.Send(command);
             return Ok(response);
         }

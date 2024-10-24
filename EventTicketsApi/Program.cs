@@ -5,6 +5,7 @@ using System.Reflection;
 using URA.Adapter.Extensions;
 using Serilog;
 using EventsTicket.Domain.Configurations;
+using EventTicketsApi.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -58,7 +59,7 @@ app.UseSwaggerUI(options =>
 });
 
 app.UseMiddleware<ExceptionMiddleware>();
-app.UseMiddleware<ApiKeyMiddleware>();
+
 
 app.UseCors("CorsPolicy");
 
