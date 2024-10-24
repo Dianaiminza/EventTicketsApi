@@ -3,6 +3,8 @@ using EventsTicket.Infrastructure.Context;
 using EventsTicket.Infrastructure.Repository.Abstractions;
 using EventTicketsApi.Swagger;
 using Infrastructure.shared.CustomExceptions;
+using Infrastructure.shared.Services.Abstractions;
+using Infrastructure.shared.Services.Implementations;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -32,6 +34,11 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection AddRepositories(this IServiceCollection services)
     {
         return services.AddScoped(typeof(IRepositoryUnit), typeof(RepositoryUnit));
+    }
+    public static IServiceCollection AddSharedInfrastructure(this IServiceCollection services)
+    {
+        services.AddTransient<ICurrentDateProvider, CurrentDateProvider>();
+        return services;
     }
     public static IServiceCollection AddUraSharedServices(
      this IServiceCollection services,

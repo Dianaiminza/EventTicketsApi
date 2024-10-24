@@ -19,6 +19,7 @@ builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.Get
 builder.Services.AddSwaggerConfiguration();
 builder.Services.ConfigureJwtAuthentication(builder.Configuration);
 builder.Services.AddCorsConfiguration();
+builder.Services.AddSharedInfrastructure();
 
 builder.Services.AddApiVersioning(config =>
 {
