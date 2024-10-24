@@ -30,4 +30,4 @@ A simple RESTful API for managing event tickets built with C# and .NET 8. This A
 
    ```bash
    git clone https://github.com/Dianaiminza/EventTicketsApi.git
-   cd EventTicketApi
+   cd EventTicketsApi
