@@ -10,7 +10,7 @@ using System.Net.Mime;
 namespace EventTicketsApi.Controllers
 {
  /// <summary>
- /// Events
+ /// Event Tickets
  /// </summary>
     [Produces(MediaTypeNames.Application.Json)]
     [Consumes(MediaTypeNames.Application.Json)]
@@ -67,6 +67,18 @@ namespace EventTicketsApi.Controllers
             request.Id = eventId;
             var command = new UpdateEventTicketCommand(request);
             var response = await _mediator.Send(command);
+            return Ok(response);
+        }
+
+        /// <summary>
+        /// Delete Event ticket.
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost("delete")]
+        public async Task<ActionResult<Result<string>>> DeleteEventTickets([FromBody] EventTicketDeleteRequest request)
+        {
+            var response = await _mediator.Send(new DeleteEventTicketCommand(request));
             return Ok(response);
         }
     }
