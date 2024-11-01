@@ -4,7 +4,7 @@ using Infrastructure.shared.Contracts;
 using Infrastructure.shared.CustomExceptions;
 using Microsoft.EntityFrameworkCore.Storage;
 
-namespace URA.Infrastructure.Repository.Implementations
+namespace EventsTicket.Infrastructure.Repository.Implementations
 {
     public class RepositoryUnit : IRepositoryUnit
     {
